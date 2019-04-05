@@ -1,3 +1,5 @@
+// This file was generated from the original css_grid_annotator repository: https://github.com/motine/css_grid_annotator
+// please check back for releases there.
 "use strict";
 
 function _instanceof(left, right) { if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) { return right[Symbol.hasInstance](left); } else { return left instanceof right; } }
