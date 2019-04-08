@@ -33,6 +33,19 @@
     <div class="elm">Amet E</div>
    </div>
 
+  <h2>Hidden markup is not considered</h2>
+  This should render as above, even though there is a hidden input and a hidden div in the container
+  <div class="container">
+    <input type="hidden">
+    <div class="elm">Lorem A</div>
+    <div class="elm">Ipsum B</div>
+    <div class="hidden">Dolor C</div>
+    <div class="elm">Dolor C</div>
+    <div class="elm">Sit D</div>
+    <div class="elm">Amet E</div>
+   </div>
+
+  <h2>If any element has specific positions annotated, we leave it alone</h2>
   <div class="container">
     <div class="elm">Lorem A</div>
     <div class="elm">Ipsum B</div>

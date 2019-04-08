@@ -15,6 +15,7 @@ Please check back under the releases tab for recent releases.
 - The script does checks only for the prefixed grid property `-ms-grid`.
 - The script currently only supports `grid-template-columns`. This script does not work if there is only grid-template-rows specified.
 - If there are more items/children than specified in the template columns, new rows will be created.
+- Hidden elements are skipped (`type="hidden"` or `display: none`).
 
 ## TODO
 

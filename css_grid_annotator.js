@@ -37,16 +37,22 @@ function cssGridAnnotate() {
     var colCount = getTemplateColCount(elm);
     if (!colCount) { return; }
     var children = elm.children;
-    for (var i = 0; i < children.length; i++) {
+    for (var i = 0, visibleIndex = 0; i < children.length; i++) { // i: which child do currently address?, visibleIndex: how many children were visible up until now? these two only differ if there are hidden elements
       var child = children[i];
-      child.style[CSS_COL] = (i % colCount) + 1;
-      child.style[CSS_ROW] = Math.floor(i / colCount) + 1;
+      if (isHiddenElemeent(child)) { continue; }
+      child.style[CSS_COL] = (visibleIndex % colCount) + 1;
+      child.style[CSS_ROW] = Math.floor(visibleIndex / colCount) + 1;
+      visibleIndex++;
     }
   }
 
   function isGridContainer(elm) {
     const styles = window.getComputedStyle(elm);
     return styles.display === CSS_DISPLAY_GRID;
+  }
+
+  function isHiddenElemeent(elm) {
+    return (elm.type === "hidden") || (window.getComputedStyle(elm).getPropertyValue("display") === "none");
   }
 
   // returns the number of elements in a computed grid-template-columns attribute.
