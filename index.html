@@ -19,6 +19,11 @@
     .hidden {
       display: none;
     }
+
+    .item1 { -ms-grid-column: 1; -ms-grid-row: 1; }
+    .item2 { -ms-grid-column: 2; -ms-grid-row: 1; }
+    .item3 { -ms-grid-column: 1; -ms-grid-row: 2; }
+    .item4 { -ms-grid-column: 2; -ms-grid-row: 2; }
   </style>
 </head>
 
@@ -46,12 +51,14 @@
    </div>
 
   <h2>If any element has specific positions annotated, we leave it alone</h2>
+
+  You should see the elements in the right order (left->right, top->bottom).
+
   <div class="container">
-    <div class="elm">Lorem A</div>
-    <div class="elm">Ipsum B</div>
-    <div class="elm">Dolor C</div>
-    <div class="elm">Sit D</div>
-    <div class="elm">Amet E</div>
+    <div class="elm item4">4</div>
+    <div class="elm item2">2</div>
+    <div class="elm item1">1</div>
+    <div class="elm item3">3</div>
    </div>
 
 

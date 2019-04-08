@@ -26,17 +26,19 @@ function cssGridAnnotate() {
     var elements = parentElement.querySelectorAll("*");
     for (var i = 0; i < elements.length; i++) {
       var elm = elements[i];
-      if (isGridContainer(elm)) {
-        annotateElement(elm);
+      if (isGridContainer(elm) && !containsAnnotations(elm)) { // we only check grid container, but we ignore the ones with pre-defined annotations
+        annotateContainer(elm);
       }
     }
   }
 
-  // Based on the grid-template-columns style attribute, it annotates the children with grid-column and grid-row.
-  function annotateElement(elm) {
-    var colCount = getTemplateColCount(elm);
+  // it annotates the children with grid-column and grid-row, based on the grid-template-columns style attribute.
+  function annotateContainer(container) {
+    // determine columns
+    var colCount = getTemplateColCount(container);
     if (!colCount) { return; }
-    var children = elm.children;
+    // annotate children
+    var children = container.children;
     for (var i = 0, visibleIndex = 0; i < children.length; i++) { // i: which child do currently address?, visibleIndex: how many children were visible up until now? these two only differ if there are hidden elements
       var child = children[i];
       if (isHiddenElemeent(child)) { continue; }
@@ -53,6 +55,19 @@ function cssGridAnnotate() {
 
   function isHiddenElemeent(elm) {
     return (elm.type === "hidden") || (window.getComputedStyle(elm).getPropertyValue("display") === "none");
+  }
+
+  // returns true if any of the direct children has CSS_COL or CSS_ROW in their computed style.
+  function containsAnnotations(elm) {
+    var children = elm.children;
+    for (var i = 0; i < children.length; i++) {
+      var child = children[i];
+      var styles = window.getComputedStyle(child);
+      if (styles.getPropertyValue(CSS_COL) != "1" || styles.getPropertyValue(CSS_ROW) != "1") { // IE will automatically determine hat all elements are at (1, 1)
+        return true;
+      }
+    }
+    return false;
   }
 
   // returns the number of elements in a computed grid-template-columns attribute.
