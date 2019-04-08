@@ -1,18 +1,12 @@
+// CSS Grid Annotator for IE 11
+//
+// Author: Tom Rothe
+// URL: https://github.com/motine/css_grid_annotator
+//
+// Please see notes in README.md.
+// NOTE: This annotation is quite expensive (only for IE11), because check every element on the page for its display type.
+//       Furthermore, for each grid container we look through all style definitions.
 /* eslint-disable */
-
-// // NOTE: Unfortunately, we can not move this script to its own file because somehow the transpiling does not work then anymore.
-// //
-// // Only applied when IE11 is found.
-// // Annotates the children of elements that have display-type grid.
-// // Based on the grid-template-columns style attribute, it annotates the children with grid-column and grid-row.
-// // NOTE: This script does not work if there is only grid-template-rows specified, it needs grid-template-rows-columns.
-// // NOTE: This annotation is quite expensive (only for IE11), because check every element on the page for its display type. Furthermore, for each grid container we look through all style definitions.
-// class GridItemAnnotator {
-//   /* eslint-disable lines-between-class-members, no-console */
-
-
-// }
-
 function cssGridAnnotate() {
   // check if we have IE11
   const agent = navigator.userAgent;
@@ -38,6 +32,7 @@ function cssGridAnnotate() {
     }
   }
 
+  // Based on the grid-template-columns style attribute, it annotates the children with grid-column and grid-row.
   function annotateElement(elm) {
     var colCount = getTemplateColCount(elm);
     if (!colCount) { return; }
