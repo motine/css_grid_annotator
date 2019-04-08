@@ -21,5 +21,5 @@ Please check back under the releases tab for recent releases.
 
 ## More to do
 
-- Consider columns
+- Consider template rows.
 - Annotate items if they are dynamically added individually.
