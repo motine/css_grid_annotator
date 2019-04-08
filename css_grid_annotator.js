@@ -1,5 +1,6 @@
 // CSS Grid Annotator for IE 11
 //
+// Version: 0.2
 // Author: Tom Rothe
 // URL: https://github.com/motine/css_grid_annotator
 //
