@@ -48,6 +48,10 @@ function cssGridAnnotate() {
     }
   }
 
+  function handleInsert(ev) {
+    annotateAll(ev.target.parentElement);
+  }
+
   function isGridContainer(elm) {
     const styles = window.getComputedStyle(elm);
     return styles.display === CSS_DISPLAY_GRID;
@@ -80,6 +84,7 @@ function cssGridAnnotate() {
   }
 
   annotateAll(document.body);
+  window.addEventListener("DOMNodeInserted", handleInsert, false);
 }
 
 window.addEventListener("load", cssGridAnnotate);

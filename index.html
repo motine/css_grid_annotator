@@ -61,6 +61,17 @@
     <div class="elm item3">3</div>
    </div>
 
+  <h2>Annotate dynamic content</h2>
+  Only works for whole containers...
+  <script type="text/javascript">
+    /* eslint-disable */
+    function appendGrid() {
+      var demoContainer = document.querySelector("#dyndemo1");
+      demoContainer.innerHTML = '<div class="container"><div class="elm">Lorem A</div><div class="elm">Ipsum B</div></div>';
+    }
+  </script>
+  <button onclick="appendGrid()">add a grid</button>
+  <div id="dyndemo1"></div>
 
 <script type="text/javascript" src="css_grid_annotator.js"></script>
 </body>
