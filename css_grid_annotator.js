@@ -50,7 +50,9 @@ function cssGridAnnotate() {
   }
 
   function handleInsert(ev) {
-    annotateAll(ev.target.parentElement);
+    if ((ev.target) && (ev.target.parentElement)) {
+      annotateAll(ev.target.parentElement);
+    }
   }
 
   function isGridContainer(elm) {
