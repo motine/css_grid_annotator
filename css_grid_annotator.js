@@ -70,7 +70,7 @@ function cssGridAnnotate() {
     for (var i = 0; i < children.length; i++) {
       var child = children[i];
       var styles = window.getComputedStyle(child);
-      if (styles.getPropertyValue(CSS_COL) != "1" || styles.getPropertyValue(CSS_ROW) != "1") { // IE will automatically determine hat all elements are at (1, 1)
+      if (styles.getPropertyValue(CSS_COL) != "1" || styles.getPropertyValue(CSS_ROW) != "1") { // IE will automatically determine that all elements are at (1, 1)
         return true;
       }
     }
