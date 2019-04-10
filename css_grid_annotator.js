@@ -10,7 +10,7 @@
 /* eslint-disable */
 function cssGridAnnotate() {
   // check if we have IE11
-  const agent = navigator.userAgent;
+  var agent = navigator.userAgent;
   var isIE11 = (agent.indexOf("Trident") >= 0) && (agent.indexOf("rv:11") >= 0);
   if (!isIE11) {
     return;
@@ -56,7 +56,7 @@ function cssGridAnnotate() {
   }
 
   function isGridContainer(elm) {
-    const styles = window.getComputedStyle(elm);
+    var styles = window.getComputedStyle(elm);
     return styles.display === CSS_DISPLAY_GRID;
   }
 
