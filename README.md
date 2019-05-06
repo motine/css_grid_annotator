@@ -25,3 +25,7 @@ Please check back under the releases tab for recent releases.
 
 - Consider template rows.
 - Annotate items if they are dynamically added individually.
+
+## Contribute
+
+Please feel free to add issues, to contribute via pull requests or to reach out to [me](github@motine.de).
