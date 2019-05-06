@@ -1,6 +1,6 @@
 # CSS Grid Annotator
 
-[CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) is great, but IE11 assumes that all items are in the first row and first column.
+[CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) is great, but IE11 assumes that all items are in the first row and first column. Please check out this [blog post](http://tomrothe.de/posts/css_grid_and_ie11.html) by Valentina and me.
 So, you have to add a lot of styles to explicitly position your grid items.
 This script automatically adds the positioning attributes for IE11.
 
