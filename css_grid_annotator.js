@@ -1,6 +1,6 @@
 // CSS Grid Annotator for IE 11
 //
-// Version: 0.2
+// Version: 0.2.1
 // Author: Tom Rothe
 // URL: https://github.com/motine/css_grid_annotator
 //
@@ -25,7 +25,8 @@ function cssGridAnnotate() {
     // we have to go through every single element to check the computed style
     // this is very performance heavy
     var elements = parentElement.querySelectorAll("*");
-    for (var i = 0; i < elements.length; i++) {
+    var elementsLength = elements.length;
+    for (var i = 0; i < elementsLength; i++) {
       var elm = elements[i];
       if (isGridContainer(elm) && !containsAnnotations(elm)) { // we only check grid container, but we ignore the ones with pre-defined annotations
         annotateContainer(elm);
@@ -40,9 +41,10 @@ function cssGridAnnotate() {
     if (!colCount) { return; }
     // annotate children
     var children = container.children;
-    for (var i = 0, visibleIndex = 0; i < children.length; i++) { // i: which child do currently address?, visibleIndex: how many children were visible up until now? these two only differ if there are hidden elements
+    var childrenLength = children.length;
+    for (var i = 0, visibleIndex = 0; i < childrenLength; i++) { // i: which child do currently address?, visibleIndex: how many children were visible up until now? these two only differ if there are hidden elements
       var child = children[i];
-      if (isHiddenElemeent(child)) { continue; }
+      if (isHiddenElement(child)) { continue; }
       child.style[CSS_COL] = (visibleIndex % colCount) + 1;
       child.style[CSS_ROW] = Math.floor(visibleIndex / colCount) + 1;
       visibleIndex++;
@@ -60,14 +62,15 @@ function cssGridAnnotate() {
     return styles.display === CSS_DISPLAY_GRID;
   }
 
-  function isHiddenElemeent(elm) {
+  function isHiddenElement(elm) {
     return (elm.type === "hidden") || (window.getComputedStyle(elm).getPropertyValue("display") === "none");
   }
 
   // returns true if any of the direct children has CSS_COL or CSS_ROW in their computed style.
   function containsAnnotations(elm) {
     var children = elm.children;
-    for (var i = 0; i < children.length; i++) {
+    var childrenLength = children.length;
+    for (var i = 0; i < childrenLength; i++) {
       var child = children[i];
       var styles = window.getComputedStyle(child);
       if (styles.getPropertyValue(CSS_COL) != "1" || styles.getPropertyValue(CSS_ROW) != "1") { // IE will automatically determine that all elements are at (1, 1)
