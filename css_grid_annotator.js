@@ -16,10 +16,10 @@ function cssGridAnnotate() {
     return;
   }
 
-  CSS_DISPLAY_GRID = "-ms-grid";
-  CSS_TEMPLATE_COLS = "-ms-grid-columns";
-  CSS_ROW = "-ms-grid-row";
-  CSS_COL = "-ms-grid-column";
+  var CSS_DISPLAY_GRID = "-ms-grid";
+  var CSS_TEMPLATE_COLS = "-ms-grid-columns";
+  var CSS_ROW = "-ms-grid-row";
+  var CSS_COL = "-ms-grid-column";
 
   function annotateAll(parentElement) {
     // we have to go through every single element to check the computed style
